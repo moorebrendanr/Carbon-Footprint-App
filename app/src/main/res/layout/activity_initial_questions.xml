@@ -1,0 +1,734 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screens.InitialQuestionsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp">
+
+        <!-- Diet card -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/diet"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="5dp"
+                android:animateLayoutChanges="true">
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/group_diet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:constraint_referenced_ids="textView_diet2,imageView_vegetarian,textView_vegetarian,imageView_vegan,textView_vegan,imageView_paleo,textView_paleo,imageView_keto,textView_keto,imageView_pescetarian,textView_pescetarian,imageView_glutenFree,textView_glutenFree,imageView_dairyFree,textView_dairyFree" />
+
+                <TextView
+                    android:id="@+id/textView_diet"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/do_you_follow_any_type_of_diet"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup_diet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_diet">
+
+                    <RadioButton
+                        android:id="@+id/radioButton_dietYes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/yes" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton_dietNo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no" />
+
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView_diet2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_weight="1"
+                    android:text="@string/which_of_these_diets_do_you_follow"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/radioGroup_diet" />
+
+                <ImageView
+                    android:id="@+id/imageView_vegetarian"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="@color/diet_selection"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onDietSelection"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textView_diet2"
+                    app:srcCompat="@drawable/ic_vegetarian"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/textView_vegetarian"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="10dp"
+                    android:backgroundTint="@color/diet_selection"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:labelFor="@+id/imageView_vegetarian"
+                    android:onClick="onDietSelection"
+                    android:text="@string/vegetarian"
+                    app:layout_constraintBottom_toBottomOf="@id/imageView_vegetarian"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView_vegetarian"
+                    app:layout_constraintTop_toTopOf="@id/imageView_vegetarian" />
+
+                <ImageView
+                    android:id="@+id/imageView_vegan"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="@color/diet_selection"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onDietSelection"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imageView_vegetarian"
+                    app:srcCompat="@drawable/ic_vegan"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/textView_vegan"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:labelFor="@+id/imageView_vegan"
+                    android:onClick="onDietSelection"
+                    android:text="@string/vegan"
+                    app:layout_constraintBottom_toBottomOf="@id/imageView_vegan"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView_vegan"
+                    app:layout_constraintTop_toTopOf="@id/imageView_vegan" />
+
+                <ImageView
+                    android:id="@+id/imageView_paleo"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="@color/diet_selection"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onDietSelection"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imageView_vegan"
+                    app:srcCompat="@drawable/ic_paleo"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/textView_paleo"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:labelFor="@+id/imageView_paleo"
+                    android:onClick="onDietSelection"
+                    android:text="@string/paleo"
+                    app:layout_constraintBottom_toBottomOf="@id/imageView_paleo"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView_paleo"
+                    app:layout_constraintTop_toTopOf="@id/imageView_paleo" />
+
+                <ImageView
+                    android:id="@+id/imageView_keto"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="@color/diet_selection"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onDietSelection"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imageView_paleo"
+                    app:srcCompat="@drawable/ic_keto"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/textView_keto"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:labelFor="@+id/imageView_keto"
+                    android:onClick="onDietSelection"
+                    android:text="@string/keto"
+                    app:layout_constraintBottom_toBottomOf="@id/imageView_keto"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView_keto"
+                    app:layout_constraintTop_toTopOf="@id/imageView_keto" />
+
+                <ImageView
+                    android:id="@+id/imageView_pescetarian"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="@color/diet_selection"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onDietSelection"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imageView_keto"
+                    app:srcCompat="@drawable/ic_pescatarian"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/textView_pescetarian"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:labelFor="@+id/imageView_pescetarian"
+                    android:onClick="onDietSelection"
+                    android:text="@string/pescetarian"
+                    app:layout_constraintBottom_toBottomOf="@id/imageView_pescetarian"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView_pescetarian"
+                    app:layout_constraintTop_toTopOf="@id/imageView_pescetarian" />
+
+                <ImageView
+                    android:id="@+id/imageView_glutenFree"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="@color/diet_selection"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onDietSelection"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imageView_pescetarian"
+                    app:srcCompat="@drawable/ic_no_gluten"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/textView_glutenFree"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:labelFor="@+id/imageView_glutenFree"
+                    android:onClick="onDietSelection"
+                    android:text="@string/gluten_free"
+                    app:layout_constraintBottom_toBottomOf="@id/imageView_glutenFree"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView_glutenFree"
+                    app:layout_constraintTop_toTopOf="@id/imageView_glutenFree" />
+
+                <ImageView
+                    android:id="@+id/imageView_dairyFree"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:background="#FFFFFF"
+                    android:backgroundTint="@color/diet_selection"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:onClick="onDietSelection"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imageView_glutenFree"
+                    app:srcCompat="@drawable/ic_no_dairy"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/textView_dairyFree"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="10dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:labelFor="@+id/imageView_dairyFree"
+                    android:onClick="onDietSelection"
+                    android:text="@string/dairy_free"
+                    app:layout_constraintBottom_toBottomOf="@id/imageView_dairyFree"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView_dairyFree"
+                    app:layout_constraintTop_toTopOf="@id/imageView_dairyFree" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- Car card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView_car"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/car_usage"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="5dp">
+
+                <ImageView
+                    android:id="@+id/imageView_car"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:scaleX="1.15"
+                    android:scaleY="1.15"
+                    android:src="@mipmap/car"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/textView_car"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/question1"
+                    android:focusable="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView_car" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup_car"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="@+id/textView_car"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_car">
+
+                    <RadioButton
+                        android:id="@+id/radioButton_carYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/yes" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton_carNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView_car2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:labelFor="@+id/editText_car"
+                    android:text="@string/question1B"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textView_car"
+                    app:layout_constraintTop_toBottomOf="@+id/radioGroup_car" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textView_car2"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_car2"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editText_car"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:importantForAutofill="no" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Electricity card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView_electricity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/electricity_usage"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="5dp">
+
+                <ImageView
+                    android:id="@+id/imageView_electricity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:scaleX="1.15"
+                    android:scaleY="1.15"
+                    android:src="@mipmap/electricity"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/textView_electricity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/question2"
+                    android:labelFor="@id/editText"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView_electricity" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textView_electricity"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_electricity"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editText_electricity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:importantForAutofill="no" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Gas card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView_gas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/gas_usage"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="5dp">
+
+                <ImageView
+                    android:id="@+id/imageView_gas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:scaleX="1.4"
+                    android:scaleY="1.15"
+                    android:src="@mipmap/natural_gas"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/textView_gas"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/question3"
+                    android:labelFor="@id/radioGroup_gas"
+                    android:focusable="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView_gas" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup_gas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_gas">
+
+                    <RadioButton
+                        android:id="@+id/radioButton_gasYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/yes" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton_gasNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView_gas2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/question3B"
+                    android:labelFor="@id/editText_gas"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/radioGroup_gas"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textView_gas2"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editText_gas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:inputType="number"
+                        android:importantForAutofill="no" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Flight card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView_flight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/airplane_travel"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="5dp">
+
+                <ImageView
+                    android:id="@+id/imageView_flight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:scaleX="1.4"
+                    android:scaleY="1.15"
+                    android:src="@mipmap/airplane"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/textView_flight"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/question4"
+                    android:labelFor="@id/radioGroup_flight"
+                    android:focusable="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView_flight" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup_flight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView_flight">
+
+                    <RadioButton
+                        android:id="@+id/radioButton_flightYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/yes" />
+
+                    <RadioButton
+                        android:id="@+id/radioButton_flightNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/textView_flight2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/question4A"
+                    android:labelFor="@id/editText_flight"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/radioGroup_flight" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textView_flight2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editText_flight"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:inputType="number"
+                        android:importantForAutofill="no" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Home card -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/home_size"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="4dp"
+            app:cardUseCompatPadding="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="5dp">
+
+                <ImageView
+                    android:id="@+id/imageView_home"
+                    android:layout_width="wrap_content"
+                    android:layout_height="200dp"
+                    android:scaleX="1.15"
+                    android:scaleY="1.15"
+                    android:src="@mipmap/house"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/textView_home"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="40dp"
+                    android:text="@string/question5"
+                    android:labelFor="@id/editText_home"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView_home" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInput_home"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textView_home"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editText_home"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:inputType="number"
+                        android:importantForAutofill="no" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:id="@+id/textView_home2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/question5A"
+                    android:labelFor="@id/editText_home2"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textInput_home" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textView_home2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editText_home2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:inputType="number"
+                        android:importantForAutofill="no" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/button_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            app:backgroundTint="@color/colorPrimary"
+            android:padding="5dp"
+            android:text="@string/submit"
+            android:textColor="#FFFF" />
+    </LinearLayout>
+</ScrollView>

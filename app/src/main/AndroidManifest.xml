@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.spice.carboncrushersrefactor">
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+<!--    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />-->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/appicon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/appicon"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <receiver
+            android:name=".receivers.AlarmRestarter"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".receivers.NotificationSender"
+            android:enabled="true"
+            android:exported="false" />
+
+        <activity
+            android:name=".screens.SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".screens.MainActivity"/>
+        <activity android:name=".screens.ReportOffsetsActivity" />
+        <activity
+            android:name=".screens.StartupActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoDisplay">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".screens.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".screens.LoginActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".screens.RegisterUser"
+            android:parentActivityName=".screens.LoginActivity"/>
+        <activity android:name=".screens.InitialQuestionsActivity" />
+
+        <!--<service
+            android:name=".services.AirportService"
+            android:exported="false" />-->
+    </application>
+
+</manifest>

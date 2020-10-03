@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    tools:context=".screens.LoginActivity">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInput_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="@string/prompt_user_name"
+        android:labelFor="@id/username"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <AutoCompleteTextView
+            android:id="@+id/username"
+            style="@style/Base.Widget.MaterialComponents.AutoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInput_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/prompt_password"
+        android:labelFor="@id/password"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/textInput_username"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:imeActionId="6"
+            android:imeActionLabel="@string/action_sign_in_short"
+            android:imeOptions="actionUnspecified"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:singleLine="true" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/email_sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="40dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="@string/action_sign_in"
+        android:textColor="#FFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/registerUserText"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textInput_password" />
+
+    <TextView
+        android:id="@+id/registerUserText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="@string/don_t_have_an_account"
+        app:layout_constraintBottom_toBottomOf="@+id/email_sign_in_button"
+        app:layout_constraintEnd_toStartOf="@+id/registerUser"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/email_sign_in_button"
+        app:layout_constraintTop_toTopOf="@+id/email_sign_in_button" />
+
+    <Button
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:id="@+id/registerUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:paddingStart="8dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="8dp"
+        android:paddingBottom="20dp"
+        android:text="@string/action_register_here"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/registerUserText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@+id/registerUserText"
+        app:layout_constraintTop_toTopOf="@+id/registerUserText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

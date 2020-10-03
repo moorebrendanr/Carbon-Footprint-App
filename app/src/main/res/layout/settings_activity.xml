@@ -1,0 +1,22 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp">
+
+    <Button
+        android:id="@+id/button_diet"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/change_diet"
+        android:textAlignment="viewStart"
+        android:layout_marginBottom="10dp"
+        android:textColor="@android:color/black"/>
+
+    <Switch
+        android:id="@+id/switch_notifications"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/daily_log_notifications" />
+</LinearLayout>

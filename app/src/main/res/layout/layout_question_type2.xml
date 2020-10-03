@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp">
+
+    <TextView
+        android:id="@+id/textView"
+        style="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/how_did_you_travel_today_and_how_far"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView_travelCar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="@id/textInput_car"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textInput_car"
+        app:srcCompat="@drawable/ic_car"
+        android:contentDescription="@string/car" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInput_car"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/miles"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@id/imageView_travelCar"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_car"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imageView_travelBus"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="@string/bus"
+        app:layout_constraintBottom_toBottomOf="@id/textInput_bus"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_travelCar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textInput_bus"
+        app:srcCompat="@drawable/ic_bus" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInput_bus"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/miles"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@id/imageView_travelBus"
+        app:layout_constraintTop_toBottomOf="@+id/textInput_car">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_bus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imageView_travelBicycle"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="@string/bicycle"
+        app:layout_constraintBottom_toBottomOf="@+id/textInput_bicycle"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_travelCar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textInput_bicycle"
+        app:srcCompat="@drawable/ic_bicycle"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInput_bicycle"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/miles"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/textInput_bus"
+        app:layout_constraintStart_toEndOf="@id/imageView_travelBicycle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_bicycle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imageView_travelTrain"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="@string/train"
+        app:layout_constraintBottom_toBottomOf="@+id/textInput_train"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_travelCar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textInput_train"
+        app:srcCompat="@drawable/ic_train"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInput_train"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/miles"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/textInput_bicycle"
+        app:layout_constraintStart_toEndOf="@+id/imageView_travelTrain">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_train"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imageView_travelPlane"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="@string/plane"
+        app:layout_constraintBottom_toBottomOf="@+id/textInput_plane"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_travelCar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textInput_plane"
+        app:srcCompat="@drawable/ic_airplane"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInput_plane"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/miles"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/textInput_train"
+        app:layout_constraintStart_toEndOf="@id/imageView_travelPlane">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_plane"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/imageView_travelWalking"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:contentDescription="@string/walking"
+        app:layout_constraintBottom_toBottomOf="@id/textInput_walking"
+        app:layout_constraintEnd_toEndOf="@+id/imageView_travelCar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textInput_walking"
+        app:srcCompat="@drawable/ic_walking"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInput_walking"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/miles"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toBottomOf="@id/textInput_plane"
+        app:layout_constraintStart_toEndOf="@id/imageView_travelWalking">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_walking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
