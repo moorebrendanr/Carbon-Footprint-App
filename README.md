@@ -1,6 +1,6 @@
 # Carbon-Footprint-Project
 
-An Android app that I worked on, which tracks a user's carbon footprint. The folder "be" contains the code for the back end server.
+An Android app that I worked on, which tracks a user's carbon footprint. The folder "be" contains the code for the back end server. When I started working on this project, the basics of the app were set up, and the backend server was mostly develooped. I added most of the functionality of the app, rewriting and refactoring most of what was there when I started. I also converted a lot of the Java code to Kotlin. The backend is essentially an API for the app to communicate with the MongoDB database. I had to add some new API routes to the backend, and in the process I learned a lot of JavaScript and Node.js/Express. I also had to write queries for the MongoDB database in order to fetch or edit data.
 
 The app allows users to submit a daily log of their activities such as travel and diet, as well as electric and gas bills. The data they input is uploaded to the server, which estimates their carbon footprint, and returns the estimate to the user. Users can see a summary and history of their carbon footprint. They are also given an option to report "offsets". By visiting a third party web page, users can choose to donate to plant a tree or purchase an "offset" to their carbon footprint. In the app, they simply report their purchased offset, and the server will calculate their reduced footprint.
 
